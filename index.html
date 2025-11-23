@@ -131,11 +131,18 @@
 
         /* Verso da carta (Capa) - Inicialmente visível */
         .card-back {
+/* Mantém a cor de fundo como "reserva" caso a imagem demore a carregar */
             background-color: var(--card-back-color);
-            color: white;
-            font-size: 2.5em;
-            font-weight: bold;
             border-color: var(--primary-color);
+            
+            /* --- INÍCIO DAS CONFIGURAÇÕES DE IMAGEM DE FUNDO --- */
+            background-image: url('https://cdn.jsdelivr.net/gh/Clebermat2/imagens/Imagem porquinho curso de 60h versao do jogo da memoria.png');     
+            background-size: contain;
+            /* Centraliza a imagem no card */
+            background-position: center;
+            /* Garante que a imagem não se repita se for pequena */
+            background-repeat: no-repeat;
+            /* --- FIM DAS CONFIGURAÇÕES DE IMAGEM DE FUNDO --- */
         }
         
         /* Estilo específico para quando o par é encontrado */
@@ -252,7 +259,7 @@
 
                 card.innerHTML = `
                     <div class="card-face card-front">${item.content}</div>
-                    <div class="card-face card-back">?</div>
+                    <div class="card-face card-back"></div>
                 `;
 
                 card.addEventListener('click', () => flipCard(card));
